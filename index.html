@@ -1,0 +1,345 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Engepeças | Peças e acessórios para veículos</title>
+  <meta name="description" content="Engepeças — comércio por atacado de peças e acessórios novos para veículos automotores. Atendimento especializado e soluções para sua operação.">
+  <meta name="theme-color" content="#111315">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  <style>
+    :root{
+      --ink:#111315; --ink2:#181b1e; --paper:#f5f4ef; --muted:#6c7074;
+      --accent:#f2b705; --line:rgba(17,19,21,.12); --white:#fff;
+    }
+    html{scroll-behavior:smooth}
+    body{font-family:Inter,Arial,sans-serif;background:var(--paper);color:var(--ink);overflow-x:hidden}
+    h1,h2,h3,h4,.display-font{font-family:"Barlow Condensed",sans-serif;text-transform:uppercase;letter-spacing:-.02em}
+    .topline{background:var(--ink);color:#dfe1e3;font-size:.78rem;padding:9px 0}
+    .topline a{color:#fff;text-decoration:none}
+    .navbar{background:rgba(17,19,21,.96)!important;padding:18px 0;transition:.3s;z-index:1000}
+    .navbar.scrolled{padding:10px 0;box-shadow:0 8px 30px rgba(0,0,0,.2)}
+    .brand{font-family:"Barlow Condensed";font-size:2rem;font-weight:700;letter-spacing:.02em;color:#fff!important}
+    .brand span{color:var(--accent)}
+    .nav-link{color:#d9dcdf!important;font-weight:600;font-size:.88rem;margin:0 7px}
+    .nav-link:hover{color:var(--accent)!important}
+    .btn-accent{background:var(--accent);border:0;color:#111;font-weight:800;padding:13px 21px;border-radius:4px}
+    .btn-accent:hover{background:#ffc51c;color:#111;transform:translateY(-1px)}
+    .btn-outline-light{border-radius:4px;padding:12px 20px;font-weight:700}
+    .hero{min-height:calc(100vh - 98px);display:flex;align-items:center;position:relative;color:#fff;background:
+      linear-gradient(90deg,rgba(10,11,12,.94) 0%,rgba(10,11,12,.78) 48%,rgba(10,11,12,.25) 100%),
+      url("https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=2200&q=85") center/cover}
+    .hero:after{content:"";position:absolute;inset:auto 0 0;height:90px;background:linear-gradient(transparent,var(--paper));opacity:.35}
+    .hero-content{position:relative;z-index:2;padding:90px 0}
+    .eyebrow{display:inline-flex;align-items:center;gap:10px;color:var(--accent);font-size:.76rem;font-weight:800;letter-spacing:.15em;text-transform:uppercase;margin-bottom:20px}
+    .eyebrow:before{content:"";width:38px;height:2px;background:var(--accent)}
+    .hero h1{font-size:clamp(3.6rem,8vw,7.2rem);line-height:.84;max-width:800px;margin:0 0 28px}
+    .hero h1 span{color:var(--accent)}
+    .hero p{font-size:1.05rem;line-height:1.8;color:#d9dbdd;max-width:650px}
+    .hero-stamp{border-left:1px solid rgba(255,255,255,.3);padding-left:24px;margin-top:55px}
+    .hero-stamp strong{font-family:"Barlow Condensed";font-size:2.5rem;color:var(--accent);display:block}
+    section{padding:105px 0}
+    .section-kicker{font-size:.73rem;font-weight:800;letter-spacing:.17em;text-transform:uppercase;color:#7a7d80;margin-bottom:12px}
+    .section-title{font-size:clamp(2.7rem,5vw,4.6rem);line-height:.9;margin-bottom:22px}
+    .section-copy{color:var(--muted);line-height:1.8;max-width:650px}
+    .numbers{background:var(--accent);padding:25px 0}
+    .num{border-right:1px solid rgba(17,19,21,.18);padding:10px 25px}
+    .num:last-child{border:0}
+    .num strong{font-family:"Barlow Condensed";font-size:2.7rem;display:block;line-height:1}
+    .num span{font-size:.78rem;font-weight:700;text-transform:uppercase}
+    .dark{background:var(--ink);color:#fff}
+    .dark .section-kicker{color:#aaa}
+    .dark .section-copy{color:#b9bdc0}
+    .dark .section-title span{color:var(--accent)}
+    .grid-card{height:100%;background:#fff;border:1px solid var(--line);padding:30px;position:relative;transition:.3s;overflow:hidden}
+    .grid-card:before{content:"";position:absolute;top:0;left:0;width:5px;height:0;background:var(--accent);transition:.3s}
+    .grid-card:hover{transform:translateY(-7px);box-shadow:0 18px 45px rgba(17,19,21,.1)}
+    .grid-card:hover:before{height:100%}
+    .icon-box{width:52px;height:52px;display:grid;place-items:center;background:#f0f0eb;font-size:1.45rem;margin-bottom:25px}
+    .grid-card h3{font-size:1.65rem}
+    .grid-card p{font-size:.9rem;line-height:1.75;color:var(--muted);margin:0}
+    .feature-photo{min-height:540px;background:url("https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=1400&q=85") center/cover;position:relative}
+    .photo-label{position:absolute;bottom:22px;left:22px;background:var(--accent);color:#111;padding:15px 18px;font-weight:800;font-size:.8rem;text-transform:uppercase}
+    .process{counter-reset:step}
+    .step{position:relative;padding:30px 0 30px 82px;border-top:1px solid rgba(255,255,255,.16)}
+    .step:last-child{border-bottom:1px solid rgba(255,255,255,.16)}
+    .step:before{counter-increment:step;content:"0" counter(step);position:absolute;left:0;top:22px;font-family:"Barlow Condensed";font-size:2.8rem;color:var(--accent)}
+    .step h3{font-size:1.8rem;margin:0 0 5px}.step p{margin:0;color:#aeb2b5;font-size:.88rem}
+    .brands{display:flex;flex-wrap:wrap;gap:10px;margin-top:35px}
+    .brand-pill{border:1px solid var(--line);background:#fff;padding:13px 20px;font-family:"Barlow Condensed";font-size:1.05rem;letter-spacing:.06em}
+    .quote-box{background:#fff;border:1px solid var(--line);padding:38px;box-shadow:0 20px 55px rgba(0,0,0,.06)}
+    .form-control,.form-select{border-radius:3px;border:1px solid #d8d8d2;padding:13px 14px;background:#fafaf7}
+    .form-control:focus,.form-select:focus{border-color:var(--accent);box-shadow:0 0 0 .2rem rgba(242,183,5,.15)}
+    .company-list{list-style:none;padding:0;margin:0}.company-list li{padding:12px 0;border-bottom:1px solid var(--line);font-size:.88rem}.company-list b{display:block;font-size:.72rem;text-transform:uppercase;color:#7a7d80;margin-bottom:3px}
+    .privacy{background:#ecebe5}.privacy details{border-top:1px solid var(--line);padding:20px 0}.privacy summary{cursor:pointer;font-weight:800}.privacy p{color:var(--muted);line-height:1.75;font-size:.88rem;margin:16px 0 0}
+    footer{background:#0b0d0f;color:#9ca0a4;padding:45px 0 25px}.footer-brand{font-family:"Barlow Condensed";font-size:2.1rem;color:#fff}.footer-brand span{color:var(--accent)}
+    footer a{color:#d6d8da;text-decoration:none}.footer-bottom{border-top:1px solid rgba(255,255,255,.1);margin-top:35px;padding-top:20px;font-size:.76rem}
+    .float-btn{position:fixed;right:22px;bottom:22px;width:54px;height:54px;border-radius:50%;display:grid;place-items:center;background:var(--accent);color:#111;font-size:1.4rem;z-index:999;box-shadow:0 10px 30px rgba(0,0,0,.22)}
+    .reveal{opacity:0;transform:translateY(25px);transition:opacity .7s ease,transform .7s ease}.reveal.show{opacity:1;transform:none}
+    .toast-container{z-index:2000}
+    @media(max-width:991px){.hero{min-height:760px}.num{border:0;border-bottom:1px solid rgba(17,19,21,.16);padding:18px 0}.num:last-child{border:0}.feature-photo{min-height:360px;margin-bottom:30px}}
+  </style>
+</head>
+<body>
+
+<div class="topline">
+  <div class="container d-flex justify-content-between flex-wrap gap-2">
+    <span><i class="bi bi-geo-alt me-1"></i> São José dos Pinhais — PR</span>
+    <span>Comércio por atacado de peças e acessórios novos para veículos automotores</span>
+  </div>
+</div>
+
+<nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+  <div class="container">
+    <a class="navbar-brand brand" href="#inicio">ENGE<span>PEÇAS</span></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu"><span class="navbar-toggler-icon"></span></button>
+    <div class="collapse navbar-collapse" id="menu">
+      <ul class="navbar-nav ms-auto align-items-lg-center">
+        <li class="nav-item"><a class="nav-link" href="#empresa">Empresa</a></li>
+        <li class="nav-item"><a class="nav-link" href="#solucoes">Soluções</a></li>
+        <li class="nav-item"><a class="nav-link" href="#processo">Como funciona</a></li>
+        <li class="nav-item"><a class="nav-link" href="#contato">Contato</a></li>
+        <li class="nav-item ms-lg-2 mt-2 mt-lg-0"><a class="btn btn-accent" href="#orcamento">Solicitar orçamento <i class="bi bi-arrow-up-right ms-1"></i></a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<main id="inicio">
+<section class="hero">
+  <div class="container hero-content">
+    <div class="eyebrow">Engepeças • Desde 2002</div>
+    <h1>Peças certas.<br><span>Operação em movimento.</span></h1>
+    <p>Fornecimento atacadista de peças e acessórios novos para veículos automotores, com atendimento orientado à necessidade de cada operação.</p>
+    <div class="d-flex flex-wrap gap-3 mt-4">
+      <a class="btn btn-accent btn-lg" href="#orcamento">Quero um orçamento <i class="bi bi-arrow-right ms-2"></i></a>
+      <a class="btn btn-outline-light btn-lg" href="#solucoes">Explorar soluções</a>
+    </div>
+    <div class="hero-stamp"><strong>ENGENHARIA + PEÇAS</strong><span>Uma estrutura preparada para atender negócios que não podem parar.</span></div>
+  </div>
+</section>
+
+<div class="numbers">
+  <div class="container">
+    <div class="row text-center text-lg-start">
+      <div class="col-lg-3 num"><strong data-counter="2002">0</strong><span>Início da operação</span></div>
+      <div class="col-lg-3 num"><strong data-counter="20">0</strong><span>Anos de experiência*</span></div>
+      <div class="col-lg-3 num"><strong>ATACADO</strong><span>Foco comercial</span></div>
+      <div class="col-lg-3 num"><strong>BR</strong><span>Atuação empresarial</span></div>
+    </div>
+  </div>
+</div>
+
+<section id="empresa">
+  <div class="container">
+    <div class="row align-items-center g-5">
+      <div class="col-lg-6 reveal">
+        <div class="section-kicker">01 — Quem somos</div>
+        <h2 class="section-title">Uma empresa feita para <span>movimentar negócios.</span></h2>
+        <p class="section-copy">A Engepecas Equipamentos Ltda. atua no comércio por atacado de peças e acessórios novos para veículos automotores. Nossa proposta é unir estrutura, atendimento comercial e conhecimento de aplicação para facilitar a compra de componentes para sua operação.</p>
+        <p class="section-copy mt-3">Com matriz em São José dos Pinhais, Paraná, a empresa construiu sua trajetória desde 24 de maio de 2002, atendendo demandas profissionais com foco em relacionamento e eficiência.</p>
+        <a href="#contato" class="btn btn-dark mt-3 px-4 py-3">Falar com a equipe <i class="bi bi-arrow-right ms-2"></i></a>
+      </div>
+      <div class="col-lg-6 reveal">
+        <div class="feature-photo">
+          <div class="photo-label">Estrutura • Atendimento • Resultado</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="solucoes" class="dark">
+  <div class="container">
+    <div class="row mb-5">
+      <div class="col-lg-7 reveal">
+        <div class="section-kicker">02 — Soluções</div>
+        <h2 class="section-title">Tudo começa com a <span>necessidade.</span></h2>
+      </div>
+      <div class="col-lg-5 reveal"><p class="section-copy mt-lg-4">Uma abordagem comercial pensada para empresas, oficinas, distribuidores e operações que precisam encontrar o componente adequado para sua aplicação.</p></div>
+    </div>
+    <div class="row g-3">
+      <div class="col-md-6 col-lg-4 reveal"><div class="grid-card"><div class="icon-box"><i class="bi bi-gear-wide-connected"></i></div><h3>Peças e componentes</h3><p>Fornecimento de peças novas e componentes para diferentes necessidades de manutenção e operação.</p></div></div>
+      <div class="col-md-6 col-lg-4 reveal"><div class="grid-card"><div class="icon-box"><i class="bi bi-truck"></i></div><h3>Aplicações automotivas</h3><p>Atendimento comercial voltado a veículos, manutenção, reposição e continuidade operacional.</p></div></div>
+      <div class="col-md-6 col-lg-4 reveal"><div class="grid-card"><div class="icon-box"><i class="bi bi-box-seam"></i></div><h3>Comércio atacadista</h3><p>Estrutura orientada para demandas profissionais, compras recorrentes e necessidades em volume.</p></div></div>
+      <div class="col-md-6 col-lg-4 reveal"><div class="grid-card"><div class="icon-box"><i class="bi bi-search"></i></div><h3>Identificação</h3><p>Você apresenta a aplicação, referência ou necessidade e nossa equipe direciona o atendimento comercial.</p></div></div>
+      <div class="col-md-6 col-lg-4 reveal"><div class="grid-card"><div class="icon-box"><i class="bi bi-clipboard-check"></i></div><h3>Orçamentos</h3><p>Processo simples para transformar sua necessidade em uma solicitação comercial objetiva.</p></div></div>
+      <div class="col-md-6 col-lg-4 reveal"><div class="grid-card"><div class="icon-box"><i class="bi bi-shield-check"></i></div><h3>Relacionamento</h3><p>Atendimento profissional e transparente, pensado para construir relações comerciais duradouras.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="processo" class="dark pt-0">
+  <div class="container">
+    <div class="row g-5 align-items-start">
+      <div class="col-lg-5 reveal">
+        <div class="section-kicker">03 — Processo</div>
+        <h2 class="section-title">Do pedido à proposta, <span>sem complicação.</span></h2>
+        <p class="section-copy">Conte o que você precisa. A equipe Engepeças organiza as informações necessárias para dar andamento à sua solicitação.</p>
+      </div>
+      <div class="col-lg-7 process reveal">
+        <div class="step"><h3>Informe sua necessidade</h3><p>Referência, aplicação, veículo, quantidade ou outras informações disponíveis.</p></div>
+        <div class="step"><h3>Receba orientação comercial</h3><p>Nossa equipe avalia os dados enviados e direciona a solicitação.</p></div>
+        <div class="step"><h3>Condições e disponibilidade</h3><p>O atendimento segue para consulta e composição da proposta.</p></div>
+        <div class="step"><h3>Escolha a melhor solução</h3><p>Você recebe as informações comerciais necessárias para decidir.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="row align-items-end">
+      <div class="col-lg-7 reveal"><div class="section-kicker">04 — Segmentos</div><h2 class="section-title">Peças para quem <span>precisa produzir.</span></h2></div>
+      <div class="col-lg-5 reveal"><p class="section-copy">Nossa atuação é voltada ao mercado profissional e às demandas de manutenção e reposição. Consulte nossa equipe sobre sua aplicação.</p></div>
+    </div>
+    <div class="brands reveal">
+      <span class="brand-pill">VEÍCULOS</span><span class="brand-pill">FROTAS</span><span class="brand-pill">OFICINAS</span><span class="brand-pill">DISTRIBUIDORES</span><span class="brand-pill">MANUTENÇÃO</span><span class="brand-pill">REPOSIÇÃO</span><span class="brand-pill">ATACADO</span>
+    </div>
+  </div>
+</section>
+
+<section id="orcamento" class="bg-white">
+  <div class="container">
+    <div class="row g-5">
+      <div class="col-lg-5 reveal">
+        <div class="section-kicker">05 — Solicitação</div>
+        <h2 class="section-title">Vamos encontrar a peça <span>para sua demanda.</span></h2>
+        <p class="section-copy">Preencha o formulário. Quanto mais informações você enviar, mais fácil será direcionar seu atendimento.</p>
+        <div class="mt-4 p-4 border-start border-4" style="border-color:var(--accent)!important;background:#f5f4ef">
+          <strong>Atendimento comercial</strong>
+          <p class="mb-0 mt-2 small text-secondary">Informe código, aplicação, marca, modelo, quantidade ou qualquer referência que você tenha.</p>
+        </div>
+      </div>
+      <div class="col-lg-7 reveal">
+        <div class="quote-box">
+          <form id="quoteForm">
+            <div class="row g-3">
+              <div class="col-md-6"><label class="form-label small fw-bold">Nome / empresa *</label><input required class="form-control" id="nome" placeholder="Como podemos chamar você?"></div>
+              <div class="col-md-6"><label class="form-label small fw-bold">E-mail *</label><input required type="email" class="form-control" id="email" placeholder="seu@email.com"></div>
+              <div class="col-md-6"><label class="form-label small fw-bold">Telefone</label><input class="form-control" id="telefone" placeholder="(00) 00000-0000"></div>
+              <div class="col-md-6"><label class="form-label small fw-bold">Código / referência</label><input class="form-control" id="codigo" placeholder="Se souber, informe aqui"></div>
+              <div class="col-12"><label class="form-label small fw-bold">O que você procura? *</label><textarea required class="form-control" id="mensagem" rows="5" placeholder="Descreva a peça, aplicação, veículo, quantidade ou necessidade..."></textarea></div>
+              <div class="col-12 d-flex align-items-start gap-2"><input required type="checkbox" class="form-check-input mt-1" id="lgpd"><label for="lgpd" class="small text-secondary">Concordo com o tratamento dos meus dados para atendimento desta solicitação.</label></div>
+              <div class="col-12"><button class="btn btn-accent w-100 py-3" type="submit">Enviar solicitação <i class="bi bi-arrow-right ms-2"></i></button></div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contato">
+  <div class="container">
+    <div class="row g-5">
+      <div class="col-lg-6 reveal">
+        <div class="section-kicker">06 — Engepecas Equipamentos Ltda.</div>
+        <h2 class="section-title">Onde estamos.</h2>
+        <p class="section-copy">Nossa matriz está localizada em São José dos Pinhais, no Paraná, em uma região estratégica para operações e negócios.</p>
+        <div class="mt-4">
+          <a class="btn btn-dark px-4 py-3" target="_blank" href="https://www.google.com/maps/search/?api=1&query=Rua+Jose+Semes+17680+Sao+Jose+dos+Pinhais+PR">Abrir no mapa <i class="bi bi-geo-alt ms-2"></i></a>
+        </div>
+      </div>
+      <div class="col-lg-6 reveal">
+        <ul class="company-list">
+          <li><b>Razão social</b>Engepecas Equipamentos Ltda.</li>
+          <li><b>Nome fantasia</b>Engepecas</li>
+          <li><b>CNPJ</b>05.063.653/0001-33</li>
+          <li><b>Natureza jurídica</b>Sociedade Empresária Limitada</li>
+          <li><b>Tipo</b>Matriz • Situação ativa</li>
+          <li><b>Endereço</b>Rua Jose Semes, 17680 — Barracao 1 — Bairro Italia<br>São José dos Pinhais — PR • CEP 83020-442</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="privacy" id="privacidade">
+  <div class="container">
+    <div class="section-kicker">07 — Privacidade</div>
+    <h2 class="section-title">Política de <span>privacidade.</span></h2>
+    <details><summary>1. Dados coletados</summary><p>Quando você utiliza o formulário deste site, podem ser solicitados dados como nome, empresa, e-mail, telefone e informações sobre a peça procurada. Esses dados são fornecidos voluntariamente pelo usuário.</p></details>
+    <details><summary>2. Finalidade</summary><p>As informações são utilizadas para responder solicitações comerciais, elaborar orçamentos e prestar atendimento relacionado aos produtos e serviços da Engepeças.</p></details>
+    <details><summary>3. Segurança e compartilhamento</summary><p>A Engepeças deve adotar medidas razoáveis para proteger os dados tratados. Informações não devem ser comercializadas. Compartilhamentos podem ocorrer quando necessários à operação do atendimento ou por obrigação legal.</p></details>
+    <details><summary>4. Direitos do titular</summary><p>Nos termos da legislação aplicável, especialmente a LGPD, o titular pode solicitar informações sobre o tratamento de seus dados e exercer os direitos previstos em lei, observadas as hipóteses legais.</p></details>
+    <details><summary>5. Cookies</summary><p>Este site pode utilizar armazenamento local do navegador para registrar a preferência de aceite do aviso de privacidade. Recursos de terceiros, como fontes e Bootstrap, podem possuir suas próprias políticas.</p></details>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="row g-4">
+      <div class="col-lg-6"><div class="footer-brand">ENGE<span>PEÇAS</span></div><p class="mt-3 mb-0">Peças certas para manter sua operação em movimento.</p></div>
+      <div class="col-lg-3"><strong class="text-white">Navegação</strong><div class="d-flex flex-column gap-2 mt-3"><a href="#empresa">Empresa</a><a href="#solucoes">Soluções</a><a href="#orcamento">Orçamento</a><a href="#privacidade">Privacidade</a></div></div>
+      <div class="col-lg-3"><strong class="text-white">Endereço</strong><p class="mt-3 mb-0">Rua Jose Semes, 17680<br>Barracao 1 • Italia<br>São José dos Pinhais — PR</p></div>
+    </div>
+    <div class="footer-bottom d-flex justify-content-between flex-wrap gap-2"><span>© <span id="year"></span> Engepecas Equipamentos Ltda.</span><span>CNPJ 05.063.653/0001-33</span></div>
+  </div>
+</footer>
+
+<a href="#inicio" class="float-btn" aria-label="Voltar ao topo"><i class="bi bi-arrow-up"></i></a>
+
+<div class="toast-container position-fixed bottom-0 start-50 translate-middle-x p-3">
+  <div id="successToast" class="toast border-0 shadow" role="alert">
+    <div class="toast-body d-flex align-items-center gap-3"><i class="bi bi-check-circle-fill fs-4 text-success"></i><div><strong>Solicitação registrada.</strong><br><span class="small text-secondary">O formulário foi validado. Conecte seu e-mail/CRM no código para receber os dados.</span></div></div>
+  </div>
+</div>
+
+<div id="cookieBanner" class="position-fixed bottom-0 start-0 end-0 p-3" style="z-index:1500;display:none">
+  <div class="container"><div class="bg-dark text-white p-3 p-md-4 rounded-2 shadow-lg d-flex flex-column flex-md-row gap-3 align-items-md-center justify-content-between">
+    <div class="small">Este site utiliza armazenamento local para melhorar sua experiência. Ao continuar, você concorda com nossa <a class="text-warning" href="#privacidade">política de privacidade</a>.</div>
+    <button id="acceptCookies" class="btn btn-accent flex-shrink-0">Aceitar</button>
+  </div></div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  const nav = document.querySelector('.navbar');
+  window.addEventListener('scroll',()=>nav.classList.toggle('scrolled',window.scrollY>30));
+
+  const observer = new IntersectionObserver(entries=>{
+    entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('show');observer.unobserve(e.target)}});
+  },{threshold:.12});
+  document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+
+  document.querySelectorAll('[data-counter]').forEach(el=>{
+    const target = Number(el.dataset.counter);
+    let start = 0, duration = 1100, t0 = null;
+    const run = t => {
+      if(!t0)t0=t;
+      const p=Math.min((t-t0)/duration,1);
+      const value=Math.floor(start+(target-start)*(1-Math.pow(1-p,3)));
+      el.textContent=value + (target < 100 ? '+' : '');
+      if(p<1)requestAnimationFrame(run);
+    };
+    new IntersectionObserver(entries=>{if(entries[0].isIntersecting){requestAnimationFrame(run)}} ,{threshold:.7}).observe(el);
+  });
+
+  document.querySelectorAll('#menu .nav-link').forEach(a=>{
+    a.addEventListener('click',()=>document.querySelector('.navbar-collapse').classList.remove('show'));
+  });
+
+  document.getElementById('quoteForm').addEventListener('submit',e=>{
+    e.preventDefault();
+    if(!e.target.checkValidity()){e.target.classList.add('was-validated');return}
+    const toast = bootstrap.Toast.getOrCreateInstance(document.getElementById('successToast'),{delay:6000});
+    toast.show();
+    e.target.reset();
+  });
+
+  const banner=document.getElementById('cookieBanner');
+  if(localStorage.getItem('engepecas_privacy')!=='accepted') banner.style.display='block';
+  document.getElementById('acceptCookies').onclick=()=>{
+    localStorage.setItem('engepecas_privacy','accepted'); banner.style.display='none';
+  };
+</script>
+</body>
+</html>
